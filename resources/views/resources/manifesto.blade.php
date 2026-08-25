@@ -14,7 +14,7 @@
                     <div class="service3-slider-box p-4 p-md-5" style="background: #f8f8fa; border-radius: 24px; border: 1px solid #eef0f3;">
                         <div class="d-flex align-items-center gap-3 mb-4">
                             <div class="icons">
-                                <i class="fa-solid fa-book-open fa-2xl" style="color: #E8040F;"></i>
+                                <i class="fa-solid fa-book-open fa-2xl" style="color: #9b59b6;"></i>
                             </div>
                             <div>
                                 <h3 class="fs-4 fw-bold mb-1">{{ __('messages.pages.manifesto.title') }}</h3>

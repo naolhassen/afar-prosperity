@@ -13,7 +13,7 @@
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="900">
                     <div class="service3-slider-box h-100 p-4 p-md-5" style="background: #f8f8fa; border-radius: 20px; border: 1px solid #eef0f3;">
                         <div class="icons mb-4">
-                            <i class="fa-solid fa-user-tie fa-2xl" style="color: #E8040F;"></i>
+                            <i class="fa-solid fa-user-tie fa-2xl" style="color: #9b59b6;"></i>
                         </div>
                         <h4 class="title fs-5 fw-bold mb-3">{{ __('messages.leaders.leader1Position') }}</h4>
                         <p class="text-muted leading-relaxed mb-4">{{ __('messages.leaders.leader1Name') }}</p>
@@ -24,7 +24,7 @@
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="1050">
                     <div class="service3-slider-box h-100 p-4 p-md-5" style="background: #f8f8fa; border-radius: 20px; border: 1px solid #eef0f3;">
                         <div class="icons mb-4">
-                            <i class="fa-solid fa-sitemap fa-2xl" style="color: #E8040F;"></i>
+                            <i class="fa-solid fa-sitemap fa-2xl" style="color: #9b59b6;"></i>
                         </div>
                         <h4 class="title fs-5 fw-bold mb-3">{{ __('messages.leaders.leader2Position') }}</h4>
                         <p class="text-muted leading-relaxed mb-4">{{ __('messages.leaders.leader2Name') }}</p>
@@ -35,7 +35,7 @@
                 <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="1200">
                     <div class="service3-slider-box h-100 p-4 p-md-5" style="background: #f8f8fa; border-radius: 20px; border: 1px solid #eef0f3;">
                         <div class="icons mb-4">
-                            <i class="fa-solid fa-bullhorn fa-2xl" style="color: #E8040F;"></i>
+                            <i class="fa-solid fa-bullhorn fa-2xl" style="color: #9b59b6;"></i>
                         </div>
                         <h4 class="title fs-5 fw-bold mb-3">{{ __('messages.leaders.leader3Position') }}</h4>
                         <p class="text-muted leading-relaxed mb-4">{{ __('messages.leaders.leader3Name') }}</p>

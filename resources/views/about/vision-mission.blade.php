@@ -13,7 +13,7 @@
                 <div class="col-xl-6 col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="service3-slider-box h-100 p-4 p-md-5" style="border-radius: 20px; background: #f8f8fa; border: 1px solid #eef0f3;">
                         <div class="icons mb-4">
-                            <i class="fa-solid fa-eye fa-2xl" style="color: #E8040F;"></i>
+                            <i class="fa-solid fa-eye fa-2xl" style="color: #9b59b6;"></i>
                         </div>
                         <h3 class="title fs-4 fw-bold mb-3">{{ __('messages.pages.visionMission.vision') }}</h3>
                         <p class="text-muted leading-relaxed" style="font-size: 16px;">{{ __('messages.pages.visionMission.visionText') }}</p>
@@ -23,7 +23,7 @@
                 <div class="col-xl-6 col-lg-6" data-aos="fade-left" data-aos-duration="1000">
                     <div class="service3-slider-box h-100 p-4 p-md-5" style="border-radius: 20px; background: #f8f8fa; border: 1px solid #eef0f3;">
                         <div class="icons mb-4">
-                            <i class="fa-solid fa-bullseye fa-2xl" style="color: #E8040F;"></i>
+                            <i class="fa-solid fa-bullseye fa-2xl" style="color: #9b59b6;"></i>
                         </div>
                         <h3 class="title fs-4 fw-bold mb-3">{{ __('messages.pages.visionMission.mission') }}</h3>
                         <p class="text-muted leading-relaxed" style="font-size: 16px;">{{ __('messages.pages.visionMission.missionText') }}</p>

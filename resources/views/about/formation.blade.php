@@ -29,7 +29,7 @@
                         </h5>
                         <div class="space16"></div>
                         <h2 class="vl-section-title">
-                            {{ __('messages.pages.formation.title') }} <span style="color: #E8040F;">{{ __('messages.pages.formation.titleHighlight') }}</span>
+                            {{ __('messages.pages.formation.title') }} <span style="color: #9b59b6;">{{ __('messages.pages.formation.titleHighlight') }}</span>
                         </h2>
                         <div class="space16"></div>
                         <p class="lead text-muted mb-4">

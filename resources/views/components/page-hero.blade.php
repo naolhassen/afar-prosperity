@@ -14,7 +14,7 @@ $currentLocale = app()->getLocale();
         <div class="row align-items-center">
             <div class="col-xl-8 col-lg-8">
                 <div class="heading1">
-                    <h1 class="text-white">{{ $title }} @if($titleHighlight)<span style="color: #E8040F;">{{ $titleHighlight }}</span>@endif</h1>
+                    <h1 class="text-white">{{ $title }} @if($titleHighlight)<span style="color: #9b59b6;">{{ $titleHighlight }}</span>@endif</h1>
                     <div class="space16"></div>
                     <a href="{{ route('home', ['locale' => $currentLocale]) }}" class="text-white-50">
                         {{ __('messages.nav.home') }} <i class="fa-solid fa-angle-right mx-2 text-danger"></i> <span class="text-white">{{ $title }}</span>

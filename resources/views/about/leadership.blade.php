@@ -26,7 +26,7 @@
                                 <div class="text">
                                     <a href="#">{{ __($leader['name']) }}</a>
                                     <div class="space14"></div>
-                                    <p style="color: #E8040F; font-weight: 500;">{{ __($leader['position']) }}</p>
+                                    <p style="color: #9b59b6; font-weight: 500;">{{ __($leader['position']) }}</p>
                                 </div>
                                 <div class="share">
                                     <a href="mailto:prosperityafarbranch@gmail.com"><i class="fa-solid fa-envelope"></i></a>

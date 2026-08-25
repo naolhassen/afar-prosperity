@@ -20,7 +20,7 @@ $locale = app()->getLocale();
           </h5>
           <div class="space16"></div>
           <h1 class="vl-section-title text-white" data-aos="fade-left" data-aos-duration="1000">
-              {{ __('messages.hero.title') }} <span style="color: #E8040F;">{{ __('messages.hero.titleHighlight') }}</span>
+              {{ __('messages.hero.title') }} <span style="color: #9b59b6;">{{ __('messages.hero.titleHighlight') }}</span>
           </h1>
           <div class="space16"></div>
           <p class="text-white-50" data-aos="fade-left" data-aos-duration="1000">
@@ -40,7 +40,7 @@ $locale = app()->getLocale();
 
       <div class="col-xl-5">
         <div class="hero-img" data-aos="zoom-in-up" data-aos-duration="1000">
-          <img src="{{ asset('assets/img/all-images/hero/hero-img5.png') }}" alt="Prosperity Afar">
+          <img src="{{ asset('images/hero-img.png') }}" alt="Prosperity Afar" style="max-width: 100%; height: auto; border-radius: 20px;">
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@ $locale = app()->getLocale();
             </h5>
             <div class="space16"></div>
             <h2 class="vl-section-title" data-aos="fade-left" data-aos-duration="1000">
-                {{ __('messages.about.title') }} <span style="color: #E8040F;">{{ __('messages.about.titleHighlight') }}</span>
+                {{ __('messages.about.title') }} <span style="color: #9b59b6;">{{ __('messages.about.titleHighlight') }}</span>
             </h2>
             <div class="space16"></div>
             <p data-aos="fade-left" data-aos-duration="1100">
@@ -161,7 +161,7 @@ $locale = app()->getLocale();
                   </h5>
                   <div class="space16"></div>
                   <h2 class="vl-section-title" data-aos="zoom-in-up" data-aos-duration="1000">
-                      {{ __('messages.services.title') }} <span style="color: #E8040F;">{{ __('messages.services.titleHighlight') }}</span>
+                      {{ __('messages.services.title') }} <span style="color: #9b59b6;">{{ __('messages.services.titleHighlight') }}</span>
                   </h2>
                 </div>
             </div>
@@ -335,7 +335,7 @@ $locale = app()->getLocale();
                     </h5>
                     <div class="space16"></div>
                     <h2 class="vl-section-title" data-aos="zoom-in" data-aos-duration="1000">
-                        {{ __('messages.leaders.title') }} <span style="color: #E8040F;">{{ __('messages.leaders.titleHighlight') }}</span>
+                        {{ __('messages.leaders.title') }} <span style="color: #9b59b6;">{{ __('messages.leaders.titleHighlight') }}</span>
                     </h2>
                 </div> 
             </div>
@@ -380,7 +380,7 @@ $locale = app()->getLocale();
                             <div class="text">
                                 <a href="{{ route('about.leadership', ['locale' => $locale]) }}">{{ __($l['name']) }}</a>
                                 <div class="space14"></div>
-                                <p style="color: #E8040F; font-weight: 500;">{{ __($l['pos']) }}</p>
+                                <p style="color: #9b59b6; font-weight: 500;">{{ __($l['pos']) }}</p>
                             </div>
                             <div class="share">
                                 <a href="mailto:prosperityafarbranch@gmail.com"><i class="fa-solid fa-envelope"></i></a>
@@ -411,7 +411,7 @@ $locale = app()->getLocale();
             </h5>
             <div class="space16"></div>
             <h2 class="vl-section-title" data-aos="zoom-in-up" data-aos-duration="1000">
-                {{ __('messages.news.title') }} <span style="color: #E8040F;">{{ __('messages.news.titleHighlight') }}</span>
+                {{ __('messages.news.title') }} <span style="color: #9b59b6;">{{ __('messages.news.titleHighlight') }}</span>
             </h2>
           </div>
         </div>
@@ -508,7 +508,7 @@ $locale = app()->getLocale();
             <div class="col-xl-7">
               <div class="cta-heading">
                 <h2 data-aos="zoom-in" data-aos-duration="800">
-                    {{ __('messages.cta.title') }} <span style="color: #E8040F;">{{ __('messages.cta.titleHighlight') }}</span>
+                    {{ __('messages.cta.title') }} <span style="color: #9b59b6;">{{ __('messages.cta.titleHighlight') }}</span>
                 </h2>
                 <div class="space16"></div>
                 <p data-aos="zoom-in" data-aos-duration="900">

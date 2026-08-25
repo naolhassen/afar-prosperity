@@ -93,10 +93,10 @@ $resourceLinks = [
                               <i class="fa-solid fa-globe"></i>
                               <span>{{ $locales[$currentLocale]['label'] }}</span>
                           </button>
-                          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow-lg" style="background: #181515; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15);">
+                          <ul class="dropdown-menu language-menu dropdown-menu-end shadow-lg">
                               @foreach ($locales as $code => $data)
                                   <li>
-                                      <a class="dropdown-item py-2 px-3 d-flex align-items-center justify-content-between {{ $currentLocale === $code ? 'active text-danger fw-bold' : 'text-white' }}" href="{{ url($code . ($pathWithoutLocale ? '/' . $pathWithoutLocale : '')) }}">
+                                      <a class="dropdown-item py-2 px-3 d-flex align-items-center justify-content-between {{ $currentLocale === $code ? 'active' : '' }}" href="{{ url($code . ($pathWithoutLocale ? '/' . $pathWithoutLocale : '')) }}">
                                           <span>{{ $data['label'] }}</span>
                                           <small class="opacity-50 text-uppercase">{{ $data['short'] }}</small>
                                       </a>
