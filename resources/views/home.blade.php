@@ -156,13 +156,13 @@ $locale = app()->getLocale();
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach ([
-                ['name' => 'messages.leaders.leader1Name', 'position' => 'messages.leaders.leader1Position'],
-                ['name' => 'messages.leaders.leader2Name', 'position' => 'messages.leaders.leader2Position'],
-                ['name' => 'messages.leaders.leader3Name', 'position' => 'messages.leaders.leader3Position'],
+                ['name' => 'messages.leaders.leader1Name', 'position' => 'messages.leaders.leader1Position', 'image' => '/images/leaders/mohammed-hussen-alisa.jpg'],
+                ['name' => 'messages.leaders.leader2Name', 'position' => 'messages.leaders.leader2Position', 'image' => '/images/leaders/weleo-aytile-hussen.jpg'],
+                ['name' => 'messages.leaders.leader3Name', 'position' => 'messages.leaders.leader3Position', 'image' => '/images/leaders/mohammed-aden-mohammed.jpg'],
             ] as $leader)
                 <div class="bg-white rounded-2xl p-8 text-center shadow-sm hover:shadow-lg transition-shadow">
-                    <div class="w-24 h-24 rounded-full bg-accent/10 mx-auto mb-5 flex items-center justify-center">
-                        <i data-lucide="user" class="w-10 h-10 text-accent"></i>
+                    <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-5 border-4 border-accent/20">
+                        <img src="{{ $leader['image'] }}" alt="{{ __($leader['name']) }}" class="w-full h-full object-cover" onerror="this.parentElement.classList.add('bg-accent/10'); this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=\'user\' class=\'w-10 h-10 text-accent\'></i>';">
                     </div>
                     <h3 class="text-lg font-bold text-dark mb-1">{{ __($leader['name']) }}</h3>
                     <p class="text-sm text-accent">{{ __($leader['position']) }}</p>
