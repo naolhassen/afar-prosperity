@@ -6,15 +6,43 @@
         titleHighlight="{{ __('messages.pages.structure.titleHighlight') }}"
         description="{{ __('messages.pages.structure.description') }}"
     />
-    <section class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="max-w-md mx-auto">
-                <div class="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                    <i data-lucide="clock" class="w-10 h-10 text-accent"></i>
+
+    <div class="service3 sp1">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="900">
+                    <div class="service3-slider-box h-100 p-4 p-md-5" style="background: #f8f8fa; border-radius: 20px; border: 1px solid #eef0f3;">
+                        <div class="icons mb-4">
+                            <i class="fa-solid fa-user-tie fa-2xl" style="color: #E8040F;"></i>
+                        </div>
+                        <h4 class="title fs-5 fw-bold mb-3">{{ __('messages.leaders.leader1Position') }}</h4>
+                        <p class="text-muted leading-relaxed mb-4">{{ __('messages.leaders.leader1Name') }}</p>
+                        <a href="{{ route('about.leadership', ['locale' => app()->getLocale()]) }}" class="readmore text-danger fw-bold">{{ __('messages.nav.leadership') }} <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </div>
-                <h2 class="text-2xl font-bold text-dark mb-3">{{ __('messages.pages.comingSoon') }}</h2>
-                <p class="text-gray">{{ __('messages.pages.structure.description') }}</p>
+
+                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="1050">
+                    <div class="service3-slider-box h-100 p-4 p-md-5" style="background: #f8f8fa; border-radius: 20px; border: 1px solid #eef0f3;">
+                        <div class="icons mb-4">
+                            <i class="fa-solid fa-sitemap fa-2xl" style="color: #E8040F;"></i>
+                        </div>
+                        <h4 class="title fs-5 fw-bold mb-3">{{ __('messages.leaders.leader2Position') }}</h4>
+                        <p class="text-muted leading-relaxed mb-4">{{ __('messages.leaders.leader2Name') }}</p>
+                        <a href="{{ route('about.leadership', ['locale' => app()->getLocale()]) }}" class="readmore text-danger fw-bold">{{ __('messages.nav.leadership') }} <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="service3-slider-box h-100 p-4 p-md-5" style="background: #f8f8fa; border-radius: 20px; border: 1px solid #eef0f3;">
+                        <div class="icons mb-4">
+                            <i class="fa-solid fa-bullhorn fa-2xl" style="color: #E8040F;"></i>
+                        </div>
+                        <h4 class="title fs-5 fw-bold mb-3">{{ __('messages.leaders.leader3Position') }}</h4>
+                        <p class="text-muted leading-relaxed mb-4">{{ __('messages.leaders.leader3Name') }}</p>
+                        <a href="{{ route('about.leadership', ['locale' => app()->getLocale()]) }}" class="readmore text-danger fw-bold">{{ __('messages.nav.leadership') }} <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection

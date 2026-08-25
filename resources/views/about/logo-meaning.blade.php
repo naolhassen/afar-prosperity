@@ -6,15 +6,47 @@
         titleHighlight="{{ __('messages.pages.logoMeaning.titleHighlight') }}"
         description="{{ __('messages.pages.logoMeaning.description') }}"
     />
-    <section class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="max-w-md mx-auto">
-                <div class="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                    <i data-lucide="clock" class="w-10 h-10 text-accent"></i>
+
+    <div class="about3 sp1">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-xl-5 text-center" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="p-4 bg-white shadow-lg" style="border-radius: 24px; border: 1px solid #eef0f3; display: inline-block;">
+                        <img src="{{ asset('images/logo.jpg') }}" alt="Prosperity Party Emblem" style="max-width: 320px; width: 100%; border-radius: 16px;">
+                    </div>
                 </div>
-                <h2 class="text-2xl font-bold text-dark mb-3">{{ __('messages.pages.comingSoon') }}</h2>
-                <p class="text-gray">{{ __('messages.pages.logoMeaning.description') }}</p>
+
+                <div class="col-xl-7" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="heading2">
+                        <h5 class="vl-section-subtitle">
+                            <img src="{{ asset('assets/img/elements/elements12.png') }}" alt="">
+                            <span>{{ __('messages.nav.about') }}</span>
+                        </h5>
+                        <div class="space16"></div>
+                        <h2 class="vl-section-title">
+                            {{ __('messages.pages.logoMeaning.title') }} <span style="color: #E8040F;">{{ __('messages.pages.logoMeaning.titleHighlight') }}</span>
+                        </h2>
+                        <div class="space16"></div>
+                        <p class="lead text-muted mb-4">
+                            {{ __('messages.pages.logoMeaning.description') }}
+                        </p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded-3 h-100 border">
+                                    <h6 class="fw-bold text-dark mb-2"><i class="fa-solid fa-sun text-warning me-2"></i> {{ __('messages.services.peaceBuilding') }}</h6>
+                                    <p class="small text-muted mb-0">{{ __('messages.services.peaceBuildingDesc') }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded-3 h-100 border">
+                                    <h6 class="fw-bold text-dark mb-2"><i class="fa-solid fa-seedling text-success me-2"></i> {{ __('messages.services.economicDev') }}</h6>
+                                    <p class="small text-muted mb-0">{{ __('messages.services.economicDevDesc') }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection

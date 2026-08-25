@@ -1,9 +1,9 @@
 @php
 $currentLocale = app()->getLocale();
 $locales = [
-    'aa' => ['Qafaraf', 'Qafar'],
-    'am' => ['አማርኛ', 'Amharic'],
-    'en' => ['English', 'English'],
+    'aa' => ['label' => 'Qafaraf', 'short' => 'AA'],
+    'am' => ['label' => 'አማርኛ', 'short' => 'AM'],
+    'en' => ['label' => 'English', 'short' => 'EN'],
 ];
 
 $path = request()->path();
@@ -31,173 +31,213 @@ $resourceLinks = [
 ];
 @endphp
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <!-- Logo -->
-            <a href="{{ route('home', ['locale' => $currentLocale]) }}" class="flex items-center gap-3">
-                <div class="relative w-10 h-10 rounded-full overflow-hidden bg-muted">
-                    <img src="/images/logo.jpg" alt="Prosperity Party" class="w-full h-full object-cover" onerror="this.style.display='none'">
-                </div>
-                <div>
-                    <p class="font-bold text-dark leading-tight text-sm sm:text-base">
-                        {{ $currentLocale === 'aa' ? 'Xisbaqo' : ($currentLocale === 'am' ? 'አፋር ክልል ቅ/ፅ/ቤት' : 'Afar Region Branch') }}
-                    </p>
-                </div>
-            </a>
+<!--=====HEADER START=======-->
+<header class="homepage3-body">
+  <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-xl-3 col-md-6 col-7">
+                  <div class="vl-logo">
+                      <a href="{{ route('home', ['locale' => $currentLocale]) }}" class="d-flex align-items-center gap-2">
+                          <img src="{{ asset('images/logo.jpg') }}" alt="Prosperity Party" class="party-logo-img">
+                          <span class="text-white fw-bold d-none d-sm-inline" style="font-size: 15px; letter-spacing: 0.5px;">
+                              {{ $currentLocale === 'aa' ? 'Leeda Partih Qafar' : ($currentLocale === 'am' ? 'የብልፅግና ፓርቲ አፋር' : 'Afar Prosperity') }}
+                          </span>
+                      </a>
+                  </div>
+              </div>
+              <div class="col-xl-6 d-none d-xl-block">
+                  <div class="vl-main-menu text-center">
+                      <nav class="vl-mobile-menu-active">
+                          <ul>
+                              <li>
+                                  <a href="{{ route('home', ['locale' => $currentLocale]) }}">{{ __('messages.nav.home') }}</a>
+                              </li>
+                              <li class="has-dropdown">
+                                  <a href="#">{{ __('messages.nav.about') }} <span><i class="fa-solid fa-angle-down d-xl-inline d-none"></i></span></a>
+                                  <ul class="sub-menu">
+                                      @foreach ($aboutLinks as $link)
+                                          <li><a href="{{ route($link['route'], ['locale' => $currentLocale]) }}">{{ $link['label'] }}</a></li>
+                                      @endforeach
+                                  </ul>
+                              </li>
+                              <li class="has-dropdown">
+                                  <a href="#">{{ __('messages.nav.briefing') }} <span><i class="fa-solid fa-angle-down d-xl-inline d-none"></i></span></a>
+                                  <ul class="sub-menu">
+                                      @foreach ($briefingLinks as $link)
+                                          <li><a href="{{ route($link['route'], ['locale' => $currentLocale]) }}">{{ $link['label'] }}</a></li>
+                                      @endforeach
+                                  </ul>
+                              </li>
+                              <li class="has-dropdown">
+                                  <a href="#">{{ __('messages.nav.resources') }} <span><i class="fa-solid fa-angle-down d-xl-inline d-none"></i></span></a>
+                                  <ul class="sub-menu">
+                                      @foreach ($resourceLinks as $link)
+                                          <li><a href="{{ route($link['route'], ['locale' => $currentLocale]) }}">{{ $link['label'] }}</a></li>
+                                      @endforeach
+                                  </ul>
+                              </li>
+                              <li>
+                                  <a href="{{ route('contact', ['locale' => $currentLocale]) }}">{{ __('messages.nav.contact') }}</a>
+                              </li>
+                          </ul>
+                      </nav>
+                  </div>
+              </div>
+              <div class="col-xl-3 col-md-6 col-5">
+                <div class="vl-hero-btn text-end">
+                  <div class="sidebar_btn-area d-flex align-items-center justify-content-end gap-2">
+                      <!-- Language Switcher Dropdown -->
+                      <div class="dropdown d-inline-block">
+                          <button class="header-lang-select dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="fa-solid fa-globe"></i>
+                              <span>{{ $locales[$currentLocale]['label'] }}</span>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow-lg" style="background: #181515; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15);">
+                              @foreach ($locales as $code => $data)
+                                  <li>
+                                      <a class="dropdown-item py-2 px-3 d-flex align-items-center justify-content-between {{ $currentLocale === $code ? 'active text-danger fw-bold' : 'text-white' }}" href="{{ url($code . ($pathWithoutLocale ? '/' . $pathWithoutLocale : '')) }}">
+                                          <span>{{ $data['label'] }}</span>
+                                          <small class="opacity-50 text-uppercase">{{ $data['short'] }}</small>
+                                      </a>
+                                  </li>
+                              @endforeach
+                          </ul>
+                      </div>
 
-            <!-- Desktop Nav -->
-            <nav class="hidden lg:flex items-center gap-1">
-                <a href="{{ route('home', ['locale' => $currentLocale]) }}" class="px-3 py-2 text-sm font-medium text-dark hover:text-accent transition-colors rounded-lg hover:bg-muted">
-                    {{ __('messages.nav.home') }}
+                      <div class="search-icon header__search header-search-btn d-none d-sm-block">
+                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 26 26" fill="none">
+                            <path d="M25 25L17 17M1 10.3333C1 11.559 1.24141 12.7727 1.71046 13.905C2.1795 15.0374 2.86699 16.0663 3.73367 16.933C4.60035 17.7997 5.62925 18.4872 6.76162 18.9562C7.89399 19.4253 9.10766 19.6667 10.3333 19.6667C11.559 19.6667 12.7727 19.4253 13.905 18.9562C15.0374 18.4872 16.0663 17.7997 16.933 16.933C17.7997 16.0663 18.4872 15.0374 18.9562 13.905C19.4253 12.7727 19.6667 11.559 19.6667 10.3333C19.6667 9.10766 19.4253 7.89399 18.9562 6.76162C18.4872 5.62925 17.7997 4.60035 16.933 3.73367C16.0663 2.86699 15.0374 2.1795 13.905 1.71046C12.7727 1.24141 11.559 1 10.3333 1C9.10766 1 7.89399 1.24141 6.76162 1.71046C5.62925 2.1795 4.60035 2.86699 3.73367 3.73367C2.86699 4.60035 2.1795 5.62925 1.71046 6.76162C1.24141 7.89399 1 9.10766 1 10.3333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg></a>
+                      </div>
+
+                      <div class="vl-header-action-item d-block d-xl-none">
+                          <button type="button" class="vl-offcanvas-toggle btn text-white p-1">
+                            <i class="fa-solid fa-bars-staggered fa-xl"></i>
+                          </button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+<!--=====HEADER END =======-->
+
+<!--===== MOBILE HEADER STARTS =======-->
+<div class="homepage3-body">
+  <div class="vl-offcanvas">
+    <div class="vl-offcanvas-wrapper">
+        <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-40">
+            <div class="vl-offcanvas-logo">
+                <a href="{{ route('home', ['locale' => $currentLocale]) }}" class="d-flex align-items-center gap-2">
+                    <img src="{{ asset('images/logo.jpg') }}" alt="Prosperity Party" style="width: 44px; height: 44px; border-radius: 8px;">
+                    <span class="text-white fw-bold" style="font-size: 15px;">
+                        {{ $currentLocale === 'aa' ? 'Leeda Parti' : ($currentLocale === 'am' ? 'ብልፅግና ፓርቲ' : 'Prosperity Party') }}
+                    </span>
                 </a>
-
-                <!-- About -->
-                <div class="relative group">
-                    <button class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-dark hover:text-accent transition-colors rounded-lg hover:bg-muted">
-                        {{ __('messages.nav.about') }}
-                        <i data-lucide="chevron-down" class="w-3 h-3"></i>
-                    </button>
-                    <div class="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                        <div class="bg-white rounded-xl shadow-lg border border-border py-2 min-w-[220px]">
-                            @foreach ($aboutLinks as $link)
-                                <a href="{{ route($link['route'], ['locale' => $currentLocale]) }}" class="block px-4 py-2.5 text-sm text-dark hover:text-accent hover:bg-muted transition-colors">
-                                    {{ $link['label'] }}
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Briefing -->
-                <div class="relative group">
-                    <button class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-dark hover:text-accent transition-colors rounded-lg hover:bg-muted">
-                        {{ __('messages.nav.briefing') }}
-                        <i data-lucide="chevron-down" class="w-3 h-3"></i>
-                    </button>
-                    <div class="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                        <div class="bg-white rounded-xl shadow-lg border border-border py-2 min-w-[220px]">
-                            @foreach ($briefingLinks as $link)
-                                <a href="{{ route($link['route'], ['locale' => $currentLocale]) }}" class="block px-4 py-2.5 text-sm text-dark hover:text-accent hover:bg-muted transition-colors">
-                                    {{ $link['label'] }}
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Resources -->
-                <div class="relative group">
-                    <button class="flex items-center gap-1 px-3 py-2 text-sm font-medium text-dark hover:text-accent transition-colors rounded-lg hover:bg-muted">
-                        {{ __('messages.nav.resources') }}
-                        <i data-lucide="chevron-down" class="w-3 h-3"></i>
-                    </button>
-                    <div class="absolute top-full left-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                        <div class="bg-white rounded-xl shadow-lg border border-border py-2 min-w-[220px]">
-                            @foreach ($resourceLinks as $link)
-                                <a href="{{ route($link['route'], ['locale' => $currentLocale]) }}" class="block px-4 py-2.5 text-sm text-dark hover:text-accent hover:bg-muted transition-colors">
-                                    {{ $link['label'] }}
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-                <a href="{{ route('contact', ['locale' => $currentLocale]) }}" class="px-3 py-2 text-sm font-medium text-dark hover:text-accent transition-colors rounded-lg hover:bg-muted">
-                    {{ __('messages.nav.contact') }}
-                </a>
-            </nav>
-
-            <!-- Right side -->
-            <div class="flex items-center gap-3">
-                <!-- Language Switcher -->
-                <div class="relative group">
-                    <button class="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-dark hover:text-accent border border-border rounded-lg hover:bg-muted transition-colors">
-                        <i data-lucide="globe" class="w-4 h-4"></i>
-                        <span class="hidden sm:inline">{{ $locales[$currentLocale][1] ?? $locales[$currentLocale][0] }}</span>
-                        <i data-lucide="chevron-down" class="w-3 h-3"></i>
-                    </button>
-                    <div class="absolute top-full right-0 pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                        <div class="bg-white rounded-xl shadow-lg border border-border py-2 min-w-[140px]">
-                            @foreach ($locales as $code => $label)
-                                <a href="/{{ $code }}/{{ $pathWithoutLocale }}" class="block px-4 py-2.5 text-sm {{ $code === $currentLocale ? 'text-accent bg-muted font-medium' : 'text-dark hover:text-accent hover:bg-muted' }} transition-colors">
-                                    {{ $label[0] }}
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-button" class="lg:hidden p-2 text-dark hover:text-accent hover:bg-muted rounded-lg transition-colors" aria-label="Open menu">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+            </div>
+            <div class="vl-offcanvas-close">
+               <button class="vl-offcanvas-close-toggle"><i class="fa-solid fa-xmark"></i></button>
             </div>
         </div>
-    </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-border shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
-            <a href="{{ route('home', ['locale' => $currentLocale]) }}" class="block px-4 py-3 text-sm font-medium text-dark hover:text-accent hover:bg-muted rounded-lg transition-colors">
-                {{ __('messages.nav.home') }}
-            </a>
-
-            <details class="group">
-                <summary class="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-dark hover:text-accent hover:bg-muted rounded-lg transition-colors cursor-pointer list-none">
-                    {{ __('messages.nav.about') }}
-                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
-                </summary>
-                <div class="pl-4 space-y-1 pt-1">
-                    @foreach ($aboutLinks as $link)
-                        <a href="{{ route($link['route'], ['locale' => $currentLocale]) }}" class="block px-4 py-2.5 text-sm text-gray hover:text-accent hover:bg-muted rounded-lg transition-colors">
-                            {{ $link['label'] }}
-                        </a>
-                    @endforeach
-                </div>
-            </details>
-
-            <details class="group">
-                <summary class="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-dark hover:text-accent hover:bg-muted rounded-lg transition-colors cursor-pointer list-none">
-                    {{ __('messages.nav.briefing') }}
-                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
-                </summary>
-                <div class="pl-4 space-y-1 pt-1">
-                    @foreach ($briefingLinks as $link)
-                        <a href="{{ route($link['route'], ['locale' => $currentLocale]) }}" class="block px-4 py-2.5 text-sm text-gray hover:text-accent hover:bg-muted rounded-lg transition-colors">
-                            {{ $link['label'] }}
-                        </a>
-                    @endforeach
-                </div>
-            </details>
-
-            <details class="group">
-                <summary class="flex items-center justify-between w-full px-4 py-3 text-sm font-medium text-dark hover:text-accent hover:bg-muted rounded-lg transition-colors cursor-pointer list-none">
-                    {{ __('messages.nav.resources') }}
-                    <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180"></i>
-                </summary>
-                <div class="pl-4 space-y-1 pt-1">
-                    @foreach ($resourceLinks as $link)
-                        <a href="{{ route($link['route'], ['locale' => $currentLocale]) }}" class="block px-4 py-2.5 text-sm text-gray hover:text-accent hover:bg-muted rounded-lg transition-colors">
-                            {{ $link['label'] }}
-                        </a>
-                    @endforeach
-                </div>
-            </details>
-
-            <a href="{{ route('contact', ['locale' => $currentLocale]) }}" class="block px-4 py-3 text-sm font-medium text-dark hover:text-accent hover:bg-muted rounded-lg transition-colors">
-                {{ __('messages.nav.contact') }}
-            </a>
+        <!-- Mobile Language Selector -->
+        <div class="mb-4">
+            <label class="text-white-50 small mb-2 d-block">{{ __('messages.nav.language') }}</label>
+            <div class="d-flex gap-2">
+                @foreach ($locales as $code => $data)
+                    <a href="{{ url($code . ($pathWithoutLocale ? '/' . $pathWithoutLocale : '')) }}" class="btn btn-sm {{ $currentLocale === $code ? 'btn-danger' : 'btn-outline-light' }} flex-fill py-2">
+                        {{ $data['label'] }}
+                    </a>
+                @endforeach
+            </div>
         </div>
-    </div>
-</header>
 
-<script>
-    const btn = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-    if (btn && menu) {
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-    }
-</script>
+        <div class="vl-offcanvas-menu d-xl-none mb-40">
+            <nav>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="{{ route('home', ['locale' => $currentLocale]) }}" class="text-white fw-semibold d-block py-2">{{ __('messages.nav.home') }}</a></li>
+                    
+                    <li class="mb-2">
+                        <a class="text-white fw-semibold d-flex justify-content-between align-items-center py-2" data-bs-toggle="collapse" href="#aboutMobileMenu" role="button" aria-expanded="false">
+                            <span>{{ __('messages.nav.about') }}</span>
+                            <i class="fa-solid fa-chevron-down small"></i>
+                        </a>
+                        <div class="collapse ps-3" id="aboutMobileMenu">
+                            <ul class="list-unstyled pt-2">
+                                @foreach ($aboutLinks as $link)
+                                    <li class="mb-2"><a href="{{ route($link['route'], ['locale' => $currentLocale]) }}" class="text-white-50 d-block py-1">{{ $link['label'] }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="mb-2">
+                        <a class="text-white fw-semibold d-flex justify-content-between align-items-center py-2" data-bs-toggle="collapse" href="#briefingMobileMenu" role="button" aria-expanded="false">
+                            <span>{{ __('messages.nav.briefing') }}</span>
+                            <i class="fa-solid fa-chevron-down small"></i>
+                        </a>
+                        <div class="collapse ps-3" id="briefingMobileMenu">
+                            <ul class="list-unstyled pt-2">
+                                @foreach ($briefingLinks as $link)
+                                    <li class="mb-2"><a href="{{ route($link['route'], ['locale' => $currentLocale]) }}" class="text-white-50 d-block py-1">{{ $link['label'] }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="mb-2">
+                        <a class="text-white fw-semibold d-flex justify-content-between align-items-center py-2" data-bs-toggle="collapse" href="#resourcesMobileMenu" role="button" aria-expanded="false">
+                            <span>{{ __('messages.nav.resources') }}</span>
+                            <i class="fa-solid fa-chevron-down small"></i>
+                        </a>
+                        <div class="collapse ps-3" id="resourcesMobileMenu">
+                            <ul class="list-unstyled pt-2">
+                                @foreach ($resourceLinks as $link)
+                                    <li class="mb-2"><a href="{{ route($link['route'], ['locale' => $currentLocale]) }}" class="text-white-50 d-block py-1">{{ $link['label'] }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="mb-2"><a href="{{ route('contact', ['locale' => $currentLocale]) }}" class="text-white fw-semibold d-block py-2">{{ __('messages.nav.contact') }}</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="space20"></div>
+        <div class="vl-offcanvas-info">
+            <h3 class="vl-offcanvas-sm-title">{{ __('messages.footer.contactInfo') }}</h3>
+            <div class="space20"></div>
+            <span><a href="mailto:prosperityafarbranch@gmail.com"> <i class="fa-regular fa-envelope"></i> prosperityafarbranch@gmail.com</a></span>
+            <span><a href="#"><i class="fa-solid fa-location-dot"></i> {{ __('messages.contact.headOffice') }}</a></span>
+        </div>
+        <div class="space20"></div>
+        <div class="vl-offcanvas-social">
+            <h3 class="vl-offcanvas-sm-title">{{ __('messages.metadata.title') }}</h3>
+            <div class="space20"></div>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+         </div>
+    </div>
+</div>
+<div class="vl-offcanvas-overlay"></div>
+</div>
+<!--===== MOBILE HEADER ENDS =======-->
+
+<!--===== SIDEBAR SEARCH STARTS=======-->
+<div class="header-search-form-wrapper">
+  <div class="tx-search-close tx-close"><i class="fa-solid fa-xmark"></i></div>
+  <div class="header-search-container">
+      <form role="search" class="search-form" action="{{ route('briefing.news', ['locale' => $currentLocale]) }}">
+      <input type="search" class="search-field" placeholder="Search news & updates..." value="" name="s">
+      <button type="submit" class="search-submit"><img src="{{ asset('assets/img/icons/search1.svg') }}" alt=""></button>
+      </form>
+  </div>
+</div>
+<div class="body-overlay"></div>
+<!--===== SIDEBAR SEARCH ENDS =======-->

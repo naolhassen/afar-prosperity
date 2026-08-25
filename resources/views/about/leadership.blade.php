@@ -6,23 +6,41 @@
         titleHighlight="{{ __('messages.pages.leadership.titleHighlight') }}"
         description="{{ __('messages.pages.leadership.description') }}"
     />
-    <section class="py-16 lg:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <div class="team3 sp2">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
                 @foreach ([
-                    ['name' => 'messages.leaders.leader1Name', 'position' => 'messages.leaders.leader1Position', 'image' => '/images/leaders/mohammed-hussen-alisa.jpg'],
-                    ['name' => 'messages.leaders.leader2Name', 'position' => 'messages.leaders.leader2Position', 'image' => '/images/leaders/weleo-aytile-hussen.jpg'],
-                    ['name' => 'messages.leaders.leader3Name', 'position' => 'messages.leaders.leader3Position', 'image' => '/images/leaders/mohammed-aden-mohammed.jpg'],
+                    ['name' => 'messages.leaders.leader1Name', 'position' => 'messages.leaders.leader1Position', 'image' => '/images/leaders/mohammed-hussen-alisa.jpg', 'delay' => '900'],
+                    ['name' => 'messages.leaders.leader2Name', 'position' => 'messages.leaders.leader2Position', 'image' => '/images/leaders/weleo-aytile-hussen.jpg', 'delay' => '1000'],
+                    ['name' => 'messages.leaders.leader3Name', 'position' => 'messages.leaders.leader3Position', 'image' => '/images/leaders/mohammed-aden-mohammed.jpg', 'delay' => '1100'],
                 ] as $leader)
-                    <div class="bg-muted rounded-2xl p-8 text-center hover:shadow-lg transition-shadow">
-                        <div class="w-40 h-40 rounded-full overflow-hidden mx-auto mb-6 border-4 border-accent/20">
-                            <img src="{{ $leader['image'] }}" alt="{{ __($leader['name']) }}" class="w-full h-full object-cover" onerror="this.parentElement.classList.add('bg-accent/10'); this.style.display='none'; this.parentElement.innerHTML='<i data-lucide=\'user\' class=\'w-20 h-20 text-accent\'></i>';">
+                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-duration="{{ $leader['delay'] }}">
+                        <div class="team3-widget-boxarea">
+                            <div class="team-images">
+                                <div class="img1" style="height: 340px; overflow: hidden; border-radius: 16px;">
+                                    <img src="{{ $leader['image'] }}" alt="{{ __($leader['name']) }}" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                            <div class="text-share-area">
+                                <div class="text">
+                                    <a href="#">{{ __($leader['name']) }}</a>
+                                    <div class="space14"></div>
+                                    <p style="color: #E8040F; font-weight: 500;">{{ __($leader['position']) }}</p>
+                                </div>
+                                <div class="share">
+                                    <a href="mailto:prosperityafarbranch@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                                </div>
+                            </div>
+                            <ul>
+                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-telegram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                            </ul>
                         </div>
-                        <h3 class="text-xl font-bold text-dark mb-2">{{ __($leader['name']) }}</h3>
-                        <p class="text-accent font-medium">{{ __($leader['position']) }}</p>
                     </div>
                 @endforeach
             </div>
         </div>
-    </section>
+    </div>
 @endsection

@@ -7,55 +7,111 @@
         description="{{ __('messages.contact.description') }}"
     />
 
-    <section class="py-16 lg:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-1">
-                    <h2 class="text-2xl font-bold text-dark mb-6">{{ __('messages.contact.info') }}</h2>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                                <i data-lucide="mail" class="w-5 h-5 text-accent"></i>
+    <!--===== CONTACT AREA STARTS =======-->
+    <div class="contact-widget-sec sp1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="contact-widget-box">
+                        <p>{{ __('messages.contact.description') }}</p>
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="contact-widget-small">
+                                    <div class="icons">
+                                        <i class="fa-solid fa-location-dot fa-2xl text-white"></i>
+                                    </div>
+                                    <div class="space24"></div>
+                                    <h5>{{ __('messages.contact.addressLabel') }}</h5>
+                                    <div class="space12"></div>
+                                    <a href="#">{{ __('messages.contact.headOffice') }}</a>
+                                </div>
                             </div>
-                            <div>
-                                <p class="text-sm text-gray">{{ __('messages.contact.emailLabel') }}</p>
-                                <a href="mailto:{{ __('messages.contact.emailValue') }}" class="text-dark hover:text-accent font-medium">{{ __('messages.contact.emailValue') }}</a>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="contact-widget-small">
+                                    <div class="icons">
+                                        <i class="fa-solid fa-envelope fa-2xl text-white"></i>
+                                    </div>
+                                    <div class="space24"></div>
+                                    <h5>{{ __('messages.contact.emailLabel') }}</h5>
+                                    <div class="space12"></div>
+                                    <a href="mailto:prosperityafarbranch@gmail.com">prosperityafarbranch@gmail.com</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                                <i data-lucide="map-pin" class="w-5 h-5 text-accent"></i>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="contact-widget-small">
+                                    <div class="icons">
+                                        <i class="fa-solid fa-clock fa-2xl text-white"></i>
+                                    </div>
+                                    <div class="space24"></div>
+                                    <h5>{{ __('messages.contact.workingHours') ?? 'Working Hours' }}</h5>
+                                    <div class="space12"></div>
+                                    <a href="#">Mon - Fri: 8:30 AM - 5:30 PM</a>
+                                </div>
                             </div>
-                            <div>
-                                <p class="text-sm text-gray">{{ __('messages.contact.addressLabel') }}</p>
-                                <p class="text-dark font-medium">{{ __('messages.contact.addressValue') }}</p>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="contact-widget-small">
+                                    <h5>{{ __('messages.footer.about') }}</h5>
+                                    <div class="space24"></div>
+                                    <ul>
+                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-telegram"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="lg:col-span-2">
-                    <form class="bg-muted rounded-2xl p-8 space-y-6" onsubmit="event.preventDefault(); alert('Message sent!');">
-                        <div class="grid sm:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-dark mb-2">{{ __('messages.contact.nameLabel') }}</label>
-                                <input type="text" class="w-full rounded-lg border border-border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-dark mb-2">{{ __('messages.contact.emailLabel') }}</label>
-                                <input type="email" class="w-full rounded-lg border border-border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent" required>
-                            </div>
+
+                <div class="col-xl-6">
+                    <div class="space30 d-xl-none d-block"></div>
+                    <div class="contact-widget-area-inner heading1">
+                        <h4 data-aos="fade-left" data-aos-duration="900">{{ __('messages.contact.title') }}</h4>
+                        <div class="space12"></div>
+                        <p data-aos="fade-left" data-aos-duration="1100">{{ __('messages.contact.description') }}</p>
+                        <div class="space12"></div>
+                        <div class="contact-boxarea" data-aos="fade-left" data-aos-duration="1200">
+                            <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                                <div class="row">
+                                    <div class="col-xl-6 col-md-6">
+                                        <div class="input-area">
+                                            <input type="text" placeholder="{{ __('messages.contact.nameLabel') }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-md-6">
+                                        <div class="input-area">
+                                            <input type="email" placeholder="{{ __('messages.contact.emailLabel') }}" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-12 col-md-12">
+                                        <div class="input-area">
+                                            <input type="text" placeholder="{{ __('messages.contact.subjectLabel') ?? 'Subject / Topic' }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-12 col-md-12">
+                                        <div class="input-area">
+                                            <textarea placeholder="{{ __('messages.contact.messageLabel') }}" rows="5" required></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-12 col-md-12">
+                                        <div class="input-area">
+                                            <button type="submit" class="vl-btn1">{{ __('messages.contact.submit') }} <i class="fa-solid fa-arrow-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-dark mb-2">{{ __('messages.contact.messageLabel') }}</label>
-                            <textarea rows="5" class="w-full rounded-lg border border-border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent" required></textarea>
-                        </div>
-                        <button type="submit" class="inline-flex items-center gap-2 px-8 py-3 bg-accent text-white font-bold rounded-lg hover:bg-accent/90 transition-colors">
-                            {{ __('messages.contact.submit') }}
-                            <i data-lucide="send" class="w-4 h-4"></i>
-                        </button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    <!--===== CONTACT AREA ENDS =======-->
 @endsection

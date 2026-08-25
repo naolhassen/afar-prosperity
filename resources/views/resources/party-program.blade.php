@@ -6,15 +6,37 @@
         titleHighlight="{{ __('messages.pages.partyProgram.titleHighlight') }}"
         description="{{ __('messages.pages.partyProgram.description') }}"
     />
-    <section class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="max-w-md mx-auto">
-                <div class="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                    <i data-lucide="clock" class="w-10 h-10 text-accent"></i>
+
+    <div class="about3 sp1">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10">
+                    <div class="service3-slider-box p-4 p-md-5" style="background: #f8f8fa; border-radius: 24px; border: 1px solid #eef0f3;">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="icons">
+                                <i class="fa-solid fa-scroll fa-2xl" style="color: #E8040F;"></i>
+                            </div>
+                            <div>
+                                <h3 class="fs-4 fw-bold mb-1">{{ __('messages.pages.partyProgram.title') }}</h3>
+                                <p class="text-muted small mb-0">{{ __('messages.metadata.title') }}</p>
+                            </div>
+                        </div>
+                        <p class="lead text-muted mb-4">{{ __('messages.pages.partyProgram.description') }}</p>
+                        <div class="p-4 bg-white rounded-3 border mb-4">
+                            <h5 class="fw-bold mb-2">{{ __('messages.services.economicDev') }}</h5>
+                            <p class="text-muted mb-0">{{ __('messages.services.economicDevDesc') }}</p>
+                        </div>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="mailto:prosperityafarbranch@gmail.com?subject=Party Program Request" class="vl-btn1">
+                                <i class="fa-solid fa-file-pdf me-2"></i> Request Program Document
+                            </a>
+                            <a href="{{ route('contact', ['locale' => app()->getLocale()]) }}" class="vl-btn2">
+                                {{ __('messages.nav.contact') }}
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <h2 class="text-2xl font-bold text-dark mb-3">{{ __('messages.pages.comingSoon') }}</h2>
-                <p class="text-gray">{{ __('messages.pages.partyProgram.description') }}</p>
             </div>
         </div>
-    </section>
+    </div>
 @endsection
