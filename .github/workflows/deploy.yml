@@ -1,0 +1,63 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer
+          extensions: mbstring, intl, pdo, pdo_mysql, xml, bcmath, zip
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install and build Node assets
+        run: |
+          npm ci
+          npm run build
+
+      - name: Prepare deployment package
+        run: |
+          mkdir -p deploy
+          cp -r app bootstrap config database lang public resources routes storage artisan composer.json composer.lock package.json package-lock.json deploy/
+          # Keep environment separate on cPanel; do not ship .env
+          # Ensure storage permissions are not an issue during upload
+          find deploy/storage -type d -not -path 'deploy/storage/framework/*' -exec chmod 775 {} \; || true
+
+      - name: Deploy to cPanel via SSH/SCP
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.CPANEL_HOST }}
+          REMOTE_USER: ${{ secrets.CPANEL_USER }}
+          REMOTE_PORT: ${{ secrets.CPANEL_PORT }}
+          SOURCE: 'deploy/'
+          TARGET: ${{ secrets.CPANEL_PATH }}
+          EXCLUDE: '.git/, .github/, .env, .env.example, phpunit.xml, tests/, node_modules/, .editorconfig, .gitattributes, .gitignore, .styleci.yml, deploy/'
+          SCRIPT_AFTER: |
+            cd ${{ secrets.CPANEL_PATH }}
+            php artisan storage:link
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
+            php artisan migrate --force || true
+            find storage -type d -exec chmod 775 {} \;
+            find bootstrap/cache -type d -exec chmod 775 {} \;
