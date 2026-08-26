@@ -89,6 +89,8 @@ jobs:
           key: ${{ secrets.CPANEL_SSH_KEY }}
           passphrase: ${{ secrets.CPANEL_SSH_PASSPHRASE }}
           port: ${{ secrets.CPANEL_SSH_PORT || '22' }}
+          timeout: 10m
+          overwrite: true
           source: "deploy.zip"
           target: "/home/${{ secrets.CPANEL_SSH_USER }}/"
 
