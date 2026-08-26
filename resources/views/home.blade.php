@@ -14,12 +14,7 @@ $locale = app()->getLocale();
     <div class="row align-items-center">
       <div class="col-xl-7">
         <div class="heading2">
-          <h5 class="vl-section-subtitle" data-aos="fade-left" data-aos-duration="900">
-              <img src="{{ asset('assets/img/elements/elements12.png') }}" alt=""> 
-              <span>{{ __('messages.hero.badge') }}</span>
-          </h5>
-          <div class="space16"></div>
-          <h1 class="vl-section-title text-white" data-aos="fade-left" data-aos-duration="1000">
+          <h1 class="vl-section-title text-dark" data-aos="fade-left" data-aos-duration="1000">
               {{ __('messages.hero.title') }} <span style="color: #9b59b6;">{{ __('messages.hero.titleHighlight') }}</span>
           </h1>
           <div class="space16"></div>
@@ -54,14 +49,42 @@ $locale = app()->getLocale();
     <div class="row">
       <div class="col-xl-12">
         <div class="brand-slider-area">
-          <div class="brand-img"><img src="{{ asset('assets/img/elements/elements19.png') }}" alt="Prosperity"></div>
-          <div class="brand-img"><img src="{{ asset('assets/img/elements/elements20.png') }}" alt="Unity"></div>
-          <div class="brand-img"><img src="{{ asset('assets/img/elements/elements21.png') }}" alt="Peace"></div>
-          <div class="brand-img"><img src="{{ asset('assets/img/elements/elements22.png') }}" alt="Development"></div>
-          <div class="brand-img"><img src="{{ asset('assets/img/elements/elements23.png') }}" alt="Inclusivity"></div>
-          <div class="brand-img"><img src="{{ asset('assets/img/elements/elements19.png') }}" alt="Prosperity"></div>
-          <div class="brand-img"><img src="{{ asset('assets/img/elements/elements20.png') }}" alt="Unity"></div>
-          <div class="brand-img"><img src="{{ asset('assets/img/elements/elements21.png') }}" alt="Peace"></div>
+          <div class="brand-img" style="display: inline-flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-star" style="font-size: 24px; color: #fff;"></i>
+            <span style="font-family: 'Abyssinica SIL', 'Nyala', 'Ethiopia Jiret', 'Noto Sans Ethiopic', sans-serif; font-size: 20px; font-weight: 700; color: #fff; white-space: nowrap;">ኢትዮጵያ አሸንፋለች!</span>
+          </div>
+          <div class="brand-img" style="display: inline-flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-hand-fist" style="font-size: 24px; color: #fff;"></i>
+            <span style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #fff; white-space: nowrap;">Itiyopiya Teyseh!</span>
+          </div>
+          <div class="brand-img" style="display: inline-flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-trophy" style="font-size: 24px; color: #fff;"></i>
+            <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 700; color: #fff; white-space: nowrap;">Ethiopia Will Win!</span>
+          </div>
+          <div class="brand-img" style="display: inline-flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-star" style="font-size: 24px; color: #fff;"></i>
+            <span style="font-family: 'Abyssinica SIL', 'Nyala', 'Ethiopia Jiret', 'Noto Sans Ethiopic', sans-serif; font-size: 20px; font-weight: 700; color: #fff; white-space: nowrap;">ኢትዮጵያ አሸንፋለች!</span>
+          </div>
+          <div class="brand-img" style="display: inline-flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-hand-fist" style="font-size: 24px; color: #fff;"></i>
+            <span style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #fff; white-space: nowrap;">Itiyopiya Teyseh!</span>
+          </div>
+          <div class="brand-img" style="display: inline-flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-trophy" style="font-size: 24px; color: #fff;"></i>
+            <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 700; color: #fff; white-space: nowrap;">Ethiopia Will Win!</span>
+          </div>
+          <div class="brand-img" style="display: inline-flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-star" style="font-size: 24px; color: #fff;"></i>
+            <span style="font-family: 'Abyssinica SIL', 'Nyala', 'Ethiopia Jiret', 'Noto Sans Ethiopic', sans-serif; font-size: 20px; font-weight: 700; color: #fff; white-space: nowrap;">ኢትዮጵያ አሸንፋለች!</span>
+          </div>
+          <div class="brand-img" style="display: inline-flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-hand-fist" style="font-size: 24px; color: #fff;"></i>
+            <span style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #fff; white-space: nowrap;">Itiyopiya Teyseh!</span>
+          </div>
+          <div class="brand-img" style="display: inline-flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-trophy" style="font-size: 24px; color: #fff;"></i>
+            <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 700; color: #fff; white-space: nowrap;">Ethiopia Will Win!</span>
+          </div>
         </div>
       </div>
     </div>
@@ -77,10 +100,7 @@ $locale = app()->getLocale();
             <div class="about-images-area">
                 <img src="{{ asset('assets/img/elements/elements15.png') }}" alt="" class="elements10 aniamtion-key-2">
                 <div class="img1 text-end" data-aos="fade-right" data-aos-duration="1000">
-                    <img src="{{ asset('assets/img/all-images/about/about-img4.png') }}" alt="">
-                </div>
-                <div class="img2" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="{{ asset('assets/img/all-images/about/about-img5.png') }}" alt="">
+                    <img src="{{ asset('images/gallery/gallery-01.jpg') }}" alt="Gallery">
                 </div>
                 <div class="experiance-box">
                   <h3><span class="counter">100</span>+</h3>
@@ -92,11 +112,6 @@ $locale = app()->getLocale();
 
         <div class="col-xl-6">
           <div class="heading2">
-            <h5 class="vl-section-subtitle" data-aos="fade-left" data-aos-duration="900">
-                <img src="{{ asset('assets/img/elements/elements12.png') }}" alt=""> 
-                <span>{{ __('messages.about.sectionTag') }}</span>
-            </h5>
-            <div class="space16"></div>
             <h2 class="vl-section-title" data-aos="fade-left" data-aos-duration="1000">
                 {{ __('messages.about.title') }} <span style="color: #9b59b6;">{{ __('messages.about.titleHighlight') }}</span>
             </h2>
@@ -155,11 +170,6 @@ $locale = app()->getLocale();
         <div class="row">
             <div class="col-xl-7 m-auto">
                 <div class="heading2 text-center space-margin60">
-                  <h5 class="vl-section-subtitle" data-aos="zoom-in-up" data-aos-duration="900">
-                      <img src="{{ asset('assets/img/elements/elements12.png') }}" alt=""> 
-                      <span>{{ __('messages.services.sectionTag') }}</span>
-                  </h5>
-                  <div class="space16"></div>
                   <h2 class="vl-section-title" data-aos="zoom-in-up" data-aos-duration="1000">
                       {{ __('messages.services.title') }} <span style="color: #9b59b6;">{{ __('messages.services.titleHighlight') }}</span>
                   </h2>
@@ -173,7 +183,7 @@ $locale = app()->getLocale();
               
               <div class="service3-slider-box">
                 <div class="img1">
-                  <img src="{{ asset('assets/img/all-images/service/s-img5.png') }}" alt="">
+                  <img src="{{ asset('images/gallery/gallery-03.jpg') }}" alt="Gallery">
                 </div>
                 <div class="content-area">
                   <div class="icons">
@@ -190,7 +200,7 @@ $locale = app()->getLocale();
 
               <div class="service3-slider-box">
                 <div class="img1">
-                  <img src="{{ asset('assets/img/all-images/service/s-img6.png') }}" alt="">
+                  <img src="{{ asset('images/gallery/gallery-04.jpg') }}" alt="Gallery">
                 </div>
                 <div class="content-area">
                   <div class="icons">
@@ -207,7 +217,7 @@ $locale = app()->getLocale();
 
               <div class="service3-slider-box">
                 <div class="img1">
-                  <img src="{{ asset('assets/img/all-images/service/s-img7.png') }}" alt="">
+                  <img src="{{ asset('images/gallery/gallery-05.jpg') }}" alt="Gallery">
                 </div>
                 <div class="content-area">
                   <div class="icons">
@@ -224,7 +234,7 @@ $locale = app()->getLocale();
 
               <div class="service3-slider-box">
                 <div class="img1">
-                  <img src="{{ asset('assets/img/all-images/service/s-img5.png') }}" alt="">
+                  <img src="{{ asset('images/gallery/gallery-03.jpg') }}" alt="Gallery">
                 </div>
                 <div class="content-area">
                   <div class="icons">
@@ -252,11 +262,6 @@ $locale = app()->getLocale();
         <div class="row align-items-center">
             <div class="col-xl-6">
                 <div class="choose-heading heading2">
-                  <h5 class="vl-section-subtitle" data-aos="fade-left" data-aos-duration="900">
-                      <img src="{{ asset('assets/img/elements/elements12.png') }}" alt=""> 
-                      <span>{{ __('messages.about.sectionTag') }}</span>
-                  </h5>
-                  <div class="space16"></div>
                   <h2 class="vl-section-title" data-aos="fade-left" data-aos-duration="1000">
                       {{ __('messages.pages.visionMission.visionTitle') }}
                   </h2>
@@ -306,10 +311,10 @@ $locale = app()->getLocale();
                 <div class="choose-images-area">
                     <img src="{{ asset('assets/img/elements/elements15.png') }}" alt="" class="elements10 aniamtion-key-2">
                     <div class="img1" data-aos="fade-right" data-aos-duration="1000">
-                        <img src="{{ asset('assets/img/all-images/choose/ch-img3.png') }}" alt="">
+                        <img src="{{ asset('images/gallery/gallery-06.jpg') }}" alt="Gallery">
                     </div>
                     <div class="img2 text-end" data-aos="fade-left" data-aos-duration="1000">
-                        <img src="{{ asset('assets/img/all-images/choose/ch-img4.png') }}" alt="">
+                        <img src="{{ asset('images/gallery/gallery-07.jpg') }}" alt="Gallery">
                     </div>
                     <div class="experiance-box">
                       <h3><span class="counter">500</span>k+</h3>
@@ -329,11 +334,6 @@ $locale = app()->getLocale();
         <div class="row">
             <div class="col-xl-8 m-auto">
                 <div class="heading2 text-center space-margin60">
-                    <h5 class="vl-section-subtitle" data-aos="zoom-in" data-aos-duration="900">
-                        <img src="{{ asset('assets/img/elements/elements12.png') }}" alt=""> 
-                        {{ __('messages.leaders.sectionTag') }}
-                    </h5>
-                    <div class="space16"></div>
                     <h2 class="vl-section-title" data-aos="zoom-in" data-aos-duration="1000">
                         {{ __('messages.leaders.title') }} <span style="color: #9b59b6;">{{ __('messages.leaders.titleHighlight') }}</span>
                     </h2>
@@ -405,11 +405,6 @@ $locale = app()->getLocale();
      <div class="row">
         <div class="col-xl-6 m-auto">
            <div class="heading2 text-center space-margin60">
-            <h5 class="vl-section-subtitle" data-aos="zoom-in-up" data-aos-duration="900">
-                <img src="{{ asset('assets/img/elements/elements12.png') }}" alt=""> 
-                <span>{{ __('messages.news.sectionTag') }}</span>
-            </h5>
-            <div class="space16"></div>
             <h2 class="vl-section-title" data-aos="zoom-in-up" data-aos-duration="1000">
                 {{ __('messages.news.title') }} <span style="color: #9b59b6;">{{ __('messages.news.titleHighlight') }}</span>
             </h2>
@@ -420,7 +415,7 @@ $locale = app()->getLocale();
       <div class="col-xl-6 col-md-6" data-aos="fade-left" data-aos-duration="900">
         <div class="vl-blog-1-item">
            <div class="vl-blog-1-thumb image-anime">
-              <img src="{{ asset('assets/img/all-images/blog/blog-img7.png') }}" alt="">
+              <img src="{{ asset('images/gallery/gallery-08.jpg') }}" alt="Gallery">
            </div>
            <div class="vl-blog-1-content">
             <div class="vl-blog-meta">
@@ -458,7 +453,7 @@ $locale = app()->getLocale();
      <div class="col-xl-6 col-md-6" data-aos="fade-left" data-aos-duration="1000">
         <div class="vl-blog-1-item">
            <div class="vl-blog-1-thumb image-anime">
-              <img src="{{ asset('assets/img/all-images/blog/blog-img8.png') }}" alt="">
+              <img src="{{ asset('images/gallery/gallery-09.jpg') }}" alt="Gallery">
            </div>
            <div class="vl-blog-1-content">
             <div class="vl-blog-meta">
@@ -525,7 +520,7 @@ $locale = app()->getLocale();
             </div>
             <div class="col-xl-5" data-aos="zoom-in" data-aos-duration="1000">
               <div class="cta-images-area text-end d-none d-xl-block">
-                <img src="{{ asset('assets/img/all-images/cta/cta-img1.png') }}" alt="Prosperity Afar">
+                <img src="{{ asset('images/gallery/gallery-10.jpg') }}" alt="Prosperity Afar">
               </div>
             </div>
           </div>

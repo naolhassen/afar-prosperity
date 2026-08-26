@@ -30,7 +30,7 @@ $currentLocale = app()->getLocale();
                 <div class="inner-images-area text-end">
                     <img src="{{ asset('assets/img/elements/elements1.png') }}" alt="" class="elements1">
                     <div class="img1">
-                        <img src="{{ asset('assets/img/all-images/hero/hero-img9.png') }}" alt="Prosperity Afar">
+                        <img src="{{ asset('images/gallery/gallery-11.jpg') }}" alt="Prosperity Afar">
                     </div>
                 </div>
             </div>

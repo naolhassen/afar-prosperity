@@ -1,11 +1,31 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CrudController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 $locales = ['aa', 'am', 'en'];
+$adminModules = 'news|announcement|vacancy|document|page|service|about|setting';
 
 Route::get('/', function () {
     return redirect('/aa');
+});
+
+Route::get('/admin/login', [AuthController::class, 'loginForm'])->name('admin.login')->middleware('web');
+Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.post')->middleware('web');
+Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout')->middleware(['web', 'role:admin,editor,viewer']);
+
+Route::prefix('admin')->name('admin.')->middleware(['web', 'role:admin,editor,viewer'])->group(function () use ($adminModules) {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/{module}', [CrudController::class, 'index'])->name('crud.index')->where('module', $adminModules);
+    Route::get('/{module}/create', [CrudController::class, 'create'])->name('crud.create')->where('module', $adminModules);
+    Route::post('/{module}', [CrudController::class, 'store'])->name('crud.store')->where('module', $adminModules);
+    Route::get('/{module}/{id}', [CrudController::class, 'show'])->name('crud.show')->where('module', $adminModules);
+    Route::get('/{module}/{id}/edit', [CrudController::class, 'edit'])->name('crud.edit')->where('module', $adminModules);
+    Route::put('/{module}/{id}', [CrudController::class, 'update'])->name('crud.update')->where('module', $adminModules);
+    Route::delete('/{module}/{id}', [CrudController::class, 'destroy'])->name('crud.destroy')->where('module', $adminModules);
 });
 
 Route::prefix('{locale}')

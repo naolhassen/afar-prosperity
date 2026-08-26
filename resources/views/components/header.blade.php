@@ -8,6 +8,7 @@ $locales = [
 
 $path = request()->path();
 $pathWithoutLocale = ltrim(preg_replace('#^'.$currentLocale.'(/|$)#', '', $path), '/');
+$currentRoute = request()->route() ? request()->route()->getName() : '';
 
 $aboutLinks = [
     ['route' => 'about.vision-mission', 'label' => __('messages.nav.visionMission')],
@@ -38,10 +39,10 @@ $resourceLinks = [
           <div class="row align-items-center">
               <div class="col-xl-3 col-md-6 col-7">
                   <div class="vl-logo">
-                      <a href="{{ route('home', ['locale' => $currentLocale]) }}" class="d-flex align-items-center gap-2">
+                      <a href="{{ route('home', ['locale' => $currentLocale]) }}" class="d-flex align-items-center gap-1" style="white-space: nowrap;">
                           <img src="{{ asset('images/logo.jpg') }}" alt="Prosperity Party" class="party-logo-img">
-                          <span class="text-white fw-bold d-none d-sm-inline" style="font-size: 15px; letter-spacing: 0.5px;">
-                              {{ $currentLocale === 'aa' ? 'Leeda Partih Qafar' : ($currentLocale === 'am' ? 'የብልፅግና ፓርቲ አፋር' : 'Afar Prosperity') }}
+                          <span class="fw-bold d-none d-sm-inline" style="font-size: 13px; letter-spacing: 0.3px; color: #9b59b6; white-space: nowrap;">
+                              {{ $currentLocale === 'aa' ? 'Leeda Partih Qafar' : ($currentLocale === 'am' ? 'የብልፅግና ፓርቲ አፋር' : 'Afar Prosperity Party') }}
                           </span>
                       </a>
                   </div>
@@ -50,11 +51,11 @@ $resourceLinks = [
                   <div class="vl-main-menu text-center">
                       <nav class="vl-mobile-menu-active">
                           <ul>
-                              <li>
-                                  <a href="{{ route('home', ['locale' => $currentLocale]) }}">{{ __('messages.nav.home') }}</a>
+                              <li class="{{ $currentRoute === 'home' ? 'active' : '' }}">
+                                  <a class="{{ $currentRoute === 'home' ? 'active' : '' }}" href="{{ route('home', ['locale' => $currentLocale]) }}">{{ __('messages.nav.home') }}</a>
                               </li>
-                              <li class="has-dropdown">
-                                  <a href="#">{{ __('messages.nav.about') }} <span><i class="fa-solid fa-angle-down d-xl-inline d-none"></i></span></a>
+                              <li class="has-dropdown {{ str_starts_with($currentRoute, 'about.') ? 'active' : '' }}">
+                                  <a class="{{ str_starts_with($currentRoute, 'about.') ? 'active' : '' }}" href="#">{{ __('messages.nav.about') }} <span><i class="fa-solid fa-angle-down d-xl-inline d-none"></i></span></a>
                                   <ul class="sub-menu">
                                       @foreach ($aboutLinks as $link)
                                           <li><a href="{{ route($link['route'], ['locale' => $currentLocale]) }}">{{ $link['label'] }}</a></li>
@@ -62,7 +63,7 @@ $resourceLinks = [
                                   </ul>
                               </li>
                               <li class="has-dropdown">
-                                  <a href="#">{{ __('messages.nav.briefing') }} <span><i class="fa-solid fa-angle-down d-xl-inline d-none"></i></span></a>
+                                  <a class="{{ str_starts_with($currentRoute, 'briefing.') ? 'active' : '' }}" href="#">{{ __('messages.nav.briefing') }} <span><i class="fa-solid fa-angle-down d-xl-inline d-none"></i></span></a>
                                   <ul class="sub-menu">
                                       @foreach ($briefingLinks as $link)
                                           <li><a href="{{ route($link['route'], ['locale' => $currentLocale]) }}">{{ $link['label'] }}</a></li>
@@ -70,15 +71,15 @@ $resourceLinks = [
                                   </ul>
                               </li>
                               <li class="has-dropdown">
-                                  <a href="#">{{ __('messages.nav.resources') }} <span><i class="fa-solid fa-angle-down d-xl-inline d-none"></i></span></a>
+                                  <a class="{{ str_starts_with($currentRoute, 'resources.') ? 'active' : '' }}" href="#">{{ __('messages.nav.resources') }} <span><i class="fa-solid fa-angle-down d-xl-inline d-none"></i></span></a>
                                   <ul class="sub-menu">
                                       @foreach ($resourceLinks as $link)
                                           <li><a href="{{ route($link['route'], ['locale' => $currentLocale]) }}">{{ $link['label'] }}</a></li>
                                       @endforeach
                                   </ul>
                               </li>
-                              <li>
-                                  <a href="{{ route('contact', ['locale' => $currentLocale]) }}">{{ __('messages.nav.contact') }}</a>
+                              <li class="{{ $currentRoute === 'contact' ? 'active' : '' }}">
+                                  <a class="{{ $currentRoute === 'contact' ? 'active' : '' }}" href="{{ route('contact', ['locale' => $currentLocale]) }}">{{ __('messages.nav.contact') }}</a>
                               </li>
                           </ul>
                       </nav>
@@ -106,13 +107,11 @@ $resourceLinks = [
                       </div>
 
                       <div class="search-icon header__search header-search-btn d-none d-sm-block">
-                          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 26 26" fill="none">
-                            <path d="M25 25L17 17M1 10.3333C1 11.559 1.24141 12.7727 1.71046 13.905C2.1795 15.0374 2.86699 16.0663 3.73367 16.933C4.60035 17.7997 5.62925 18.4872 6.76162 18.9562C7.89399 19.4253 9.10766 19.6667 10.3333 19.6667C11.559 19.6667 12.7727 19.4253 13.905 18.9562C15.0374 18.4872 16.0663 17.7997 16.933 16.933C17.7997 16.0663 18.4872 15.0374 18.9562 13.905C19.4253 12.7727 19.6667 11.559 19.6667 10.3333C19.6667 9.10766 19.4253 7.89399 18.9562 6.76162C18.4872 5.62925 17.7997 4.60035 16.933 3.73367C16.0663 2.86699 15.0374 2.1795 13.905 1.71046C12.7727 1.24141 11.559 1 10.3333 1C9.10766 1 7.89399 1.24141 6.76162 1.71046C5.62925 2.1795 4.60035 2.86699 3.73367 3.73367C2.86699 4.60035 2.1795 5.62925 1.71046 6.76162C1.24141 7.89399 1 9.10766 1 10.3333Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg></a>
+                          <a href="#" style="color: #9b59b6; font-size: 22px;"><i class="fa-solid fa-magnifying-glass"></i></a>
                       </div>
 
                       <div class="vl-header-action-item d-block d-xl-none">
-                          <button type="button" class="vl-offcanvas-toggle btn text-white p-1">
+                          <button type="button" class="vl-offcanvas-toggle btn p-1" style="color: #9b59b6;">
                             <i class="fa-solid fa-bars-staggered fa-xl"></i>
                           </button>
                       </div>
@@ -131,9 +130,9 @@ $resourceLinks = [
     <div class="vl-offcanvas-wrapper">
         <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-40">
             <div class="vl-offcanvas-logo">
-                <a href="{{ route('home', ['locale' => $currentLocale]) }}" class="d-flex align-items-center gap-2">
-                    <img src="{{ asset('images/logo.jpg') }}" alt="Prosperity Party" style="width: 44px; height: 44px; border-radius: 8px;">
-                    <span class="text-white fw-bold" style="font-size: 15px;">
+                <a href="{{ route('home', ['locale' => $currentLocale]) }}" class="d-flex align-items-center gap-1" style="white-space: nowrap;">
+                    <img src="{{ asset('images/logo.jpg') }}" alt="Prosperity Party" style="width: 40px; height: 40px; border-radius: 8px;">
+                    <span class="fw-bold" style="font-size: 13px; color: #9b59b6; white-space: nowrap;">
                         {{ $currentLocale === 'aa' ? 'Leeda Parti' : ($currentLocale === 'am' ? 'ብልፅግና ፓርቲ' : 'Prosperity Party') }}
                     </span>
                 </a>

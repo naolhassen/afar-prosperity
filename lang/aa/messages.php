@@ -31,8 +31,8 @@ return array (
   'hero' => 
   array (
     'badge' => 'Leeda Partik Qafar Rakaakayih K/Buxak',
-    'title' => 'Qafar Rakaakayih Leeda Kee Baaxoh',
-    'titleHighlight' => 'Tan Tamhaye',
+    'title' => 'Leeda Kee Baaxoh',
+    'titleHighlight' => 'Qafar Rakaakayih',
     'description' => 'Qafar ummattal caalitte kee, baaxoy diggoysaak, nummaysaak kee baddal tamixxige macaadah bicissa marah yan diggoysaak elle kaduk le partik.',
     'cta' => 'Nagaayat Timixxige',
     'secondaryCta' => 'Naqma Timixxige',

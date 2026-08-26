@@ -13,21 +13,16 @@
                 <div class="col-xl-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="about-images-area">
                         <div class="img1 text-end">
-                            <img src="{{ asset('assets/img/all-images/about/about-img4.png') }}" alt="" style="border-radius: 20px;">
+                            <img src="{{ asset('images/gallery/gallery-12.jpg') }}" alt="Gallery" style="border-radius: 20px;">
                         </div>
                         <div class="img2">
-                            <img src="{{ asset('assets/img/all-images/about/about-img5.png') }}" alt="" style="border-radius: 20px;">
+                            <img src="{{ asset('images/gallery/gallery-13.jpg') }}" alt="Gallery" style="border-radius: 20px;">
                         </div>
                     </div>
                 </div>
 
                 <div class="col-xl-6" data-aos="fade-left" data-aos-duration="1000">
                     <div class="heading2">
-                        <h5 class="vl-section-subtitle">
-                            <img src="{{ asset('assets/img/elements/elements12.png') }}" alt="">
-                            <span>{{ __('messages.nav.about') }}</span>
-                        </h5>
-                        <div class="space16"></div>
                         <h2 class="vl-section-title">
                             {{ __('messages.pages.formation.title') }} <span style="color: #9b59b6;">{{ __('messages.pages.formation.titleHighlight') }}</span>
                         </h2>

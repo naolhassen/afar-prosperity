@@ -18,11 +18,6 @@
 
                 <div class="col-xl-7" data-aos="fade-left" data-aos-duration="1000">
                     <div class="heading2">
-                        <h5 class="vl-section-subtitle">
-                            <img src="{{ asset('assets/img/elements/elements12.png') }}" alt="">
-                            <span>{{ __('messages.nav.about') }}</span>
-                        </h5>
-                        <div class="space16"></div>
                         <h2 class="vl-section-title">
                             {{ __('messages.pages.logoMeaning.title') }} <span style="color: #9b59b6;">{{ __('messages.pages.logoMeaning.titleHighlight') }}</span>
                         </h2>
