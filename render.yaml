@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: afar-prosperity
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile.render
+    branch: main
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        value: https://afar-prosperity.onrender.com
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: afar-prosperity-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: afar-prosperity-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: afar-prosperity-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: afar-prosperity-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: afar-prosperity-db
+          property: password
+
+databases:
+  - name: afar-prosperity-db
+    plan: free
+    databaseName: afar_prosperity
+    user: afar_prosperity
