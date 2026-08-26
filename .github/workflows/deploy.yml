@@ -119,18 +119,13 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         env:
           DEBUGINFOD_URLS: ""
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-          DB_DATABASE: ${{ secrets.DB_DATABASE }}
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         with:
           host: ${{ secrets.CPANEL_SSH_HOST }}
           username: ${{ secrets.CPANEL_SSH_USER }}
           key: ${{ secrets.CPANEL_SSH_KEY }}
           passphrase: ${{ secrets.CPANEL_SSH_PASSPHRASE }}
           port: ${{ secrets.CPANEL_SSH_PORT || '22' }}
-          envs: DEBUGINFOD_URLS,DB_HOST,DB_PORT,DB_DATABASE,DB_USERNAME,DB_PASSWORD
+          envs: DEBUGINFOD_URLS
           script: |
             set -e
             APP_DIR='${{ secrets.CPANEL_DEV_DIR }}'
@@ -143,25 +138,11 @@ jobs:
             unzip -o -q /home/${{ secrets.CPANEL_SSH_USER }}/deploy.zip
             ls -la
             ls -la public/
-            set_env_value() {
-              sed -i "/^$1=/d" .env
-              echo "$1=$2" >> .env
-            }
             if [ ! -f .env ]; then
               cp .env.example .env
+              sed -i 's/^APP_ENV=.*/APP_ENV=production/' .env
+              sed -i 's/^APP_DEBUG=.*/APP_DEBUG=false/' .env
             fi
-            set_env_value APP_ENV production
-            set_env_value APP_DEBUG false
-            set_env_value DB_CONNECTION pgsql
-            [ -z "$DB_HOST" ] && { echo "DB_HOST secret is not set"; exit 1; }
-            [ -z "$DB_DATABASE" ] && { echo "DB_DATABASE secret is not set"; exit 1; }
-            [ -z "$DB_USERNAME" ] && { echo "DB_USERNAME secret is not set"; exit 1; }
-            set_env_value DB_HOST "$DB_HOST"
-            DB_PORT=${DB_PORT:-5432}
-            set_env_value DB_PORT "$DB_PORT"
-            set_env_value DB_DATABASE "$DB_DATABASE"
-            set_env_value DB_USERNAME "$DB_USERNAME"
-            set_env_value DB_PASSWORD "$DB_PASSWORD"
             grep -q '^APP_KEY=.\+' .env || php artisan key:generate --force
             mkdir -p bootstrap/cache
             mkdir -p storage/framework/cache
