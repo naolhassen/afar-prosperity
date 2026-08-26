@@ -81,18 +81,39 @@ jobs:
             pkill -9 -f '[d]ebuginfod' 2>/dev/null || true
             pgrep -af '[d]ebuginfod' 2>/dev/null | head -n 5 || true
 
-      - name: Upload deploy zip to cPanel
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.CPANEL_SSH_HOST }}
-          username: ${{ secrets.CPANEL_SSH_USER }}
-          key: ${{ secrets.CPANEL_SSH_KEY }}
-          passphrase: ${{ secrets.CPANEL_SSH_PASSPHRASE }}
-          port: ${{ secrets.CPANEL_SSH_PORT || '22' }}
-          timeout: 10m
-          overwrite: true
-          source: "deploy.zip"
-          target: "/home/${{ secrets.CPANEL_SSH_USER }}/"
+      - name: Upload deploy zip via SSH
+        env:
+          SSH_HOST: ${{ secrets.CPANEL_SSH_HOST }}
+          SSH_USER: ${{ secrets.CPANEL_SSH_USER }}
+          SSH_KEY: ${{ secrets.CPANEL_SSH_KEY }}
+          SSH_PASS: ${{ secrets.CPANEL_SSH_PASSPHRASE }}
+          SSH_PORT: ${{ secrets.CPANEL_SSH_PORT || '22' }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          eval "$(ssh-agent -s)"
+
+          if [ -n "$SSH_PASS" ]; then
+            echo '#!/bin/sh' > /tmp/ssh_askpass.sh
+            echo 'echo "$SSH_PASS"' >> /tmp/ssh_askpass.sh
+            chmod +x /tmp/ssh_askpass.sh
+            SSH_ASKPASS=/tmp/ssh_askpass.sh SSH_ASKPASS_REQUIRE=force DISPLAY=:0 ssh-add ~/.ssh/deploy_key < /dev/null
+            rm -f /tmp/ssh_askpass.sh
+          else
+            ssh-add ~/.ssh/deploy_key
+          fi
+
+          ssh -p "$SSH_PORT" \
+              -o StrictHostKeyChecking=no \
+              -o UserKnownHostsFile=/dev/null \
+              -o BatchMode=yes \
+              "$SSH_USER@$SSH_HOST" \
+              "cat > /home/$SSH_USER/deploy.zip" \
+              < deploy.zip
+
+          ssh-agent -k
 
       - name: Extract and finish on cPanel
         uses: appleboy/ssh-action@v1.0.3
